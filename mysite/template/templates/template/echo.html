@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>echo</title>
+</head>
+<body>
+    {% if requestGET %}
+        {% for key, value in requestGET.items %}
+            <li>get: {{key}}: {{value}}</li>
+        {% endfor %}
+    {% elif requestPOST %}
+        {% for key, value in requestPOST %}
+            <li>post: {{key}}: {{value}}</li>
+        {% endfor %}
+    {% endif %}
+
+    {% if requestHeaders.HTTP_X_PRINT_STATEMENT %}
+        statement is {{ requestHeaders.HTTP_X_PRINT_STATEMENT }}
+    {% else %}
+        statement is empty
+    {% endif %}
+</body>
+</html>
